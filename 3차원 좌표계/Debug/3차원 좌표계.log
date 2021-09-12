@@ -1,0 +1,9 @@
+﻿  main.cpp
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(39,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(40,40): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(50,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(51,40): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(60,39): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(61,40): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\3차원 좌표계\main.cpp(75,23): warning C4305: '+=': 'double'에서 'float'(으)로 잘립니다.
+  3차원 좌표계.vcxproj -> C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3차원 좌표계\Debug\3차원 좌표계.exe
