@@ -113,10 +113,10 @@ void mouse_move(int x, int y) {
 
 void mouse_wheel(int button, int dir, int x, int y) {
     if (dir > 0) {
-
+        radius = radius / 2;
     }
     else {
-
+        radius = radius * 2;
     }
     return;
 }
