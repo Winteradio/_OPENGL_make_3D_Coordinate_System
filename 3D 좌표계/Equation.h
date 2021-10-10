@@ -15,6 +15,8 @@ public:
 
 	void Planetovector(double CX[3], double CY[3], int WIN[2],double POS[3], int P_WIDTH, int P_HEIGHT);
 
+	void Picking(double CX[3], double CY[3], double POS[3], double Picking[3]);
+
 	void Rotate(double camera[3], double PV[3]);
 
 	void Upvector(double CX[3], double Up[3]);

@@ -52,14 +52,30 @@ void Equation::Planetovector(double CX[3], double CY[3], int WIN[2],double POS[3
 		Up[i] = Up[i] / sqrt(Dotproduct(Up, Up));
 	}
 	double win[2];
-	win[0] = (double)(WIN[0] - (double)P_WIDTH / 2)/((double)P_WIDTH / 2);
-	win[1] = (double)(-WIN[1] + (double)P_HEIGHT / 2)/ ((double)P_HEIGHT / 2);
+	win[0] = (double)(WIN[0] - (double)P_WIDTH / 2)/(double)200;
+	win[1] = (double)(-WIN[1] + (double)P_HEIGHT / 2) / (double)200;
 	for (int i = 0; i <= 2; i++) {
 		NU[i] *= win[0];
 		Up[i] *= win[1];
 	}
 	for (int i = 0; i <= 2; i++) {
 		POS[i] = Up[i]+NU[i];
+	}
+}
+
+void Equation::Picking(double CX[3], double CY[3], double POS[3], double Picking[3]) {
+	double CX_lenght,P_lenght;
+	double R_POS[3];
+	for (int i = 0; i <= 2; i++) {
+		R_POS[i] = POS[i] - CY[i];
+	}
+	CX_lenght = sqrt(Dotproduct(CX, CX));
+	P_lenght= Dotproduct(R_POS, CX) / sqrt(Dotproduct(CX, CX));
+	for (int i = 0; i <= 2; i++) {
+		Picking[i] *= (CX_lenght - P_lenght);
+	}
+	for (int i = 0; i <= 2 ; i++) {
+		Picking[i] += CX[i] * P_lenght / CX_lenght + CY[i];
 	}
 }
 

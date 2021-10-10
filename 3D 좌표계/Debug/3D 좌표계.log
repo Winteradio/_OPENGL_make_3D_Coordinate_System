@@ -1,12 +1,15 @@
 ﻿  main.cpp
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(63,12): warning C4101: 'Dis' :참조되지 않은 지역 변수입니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(61,12): warning C4101: 'seq' :참조되지 않은 지역 변수입니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(138,67): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(300,64): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(300,44): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(300,24): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(301,67): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(301,46): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(301,25): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(322,32): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(70,12): warning C4101: 'Dis' :참조되지 않은 지역 변수입니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(68,12): warning C4101: 'seq' :참조되지 않은 지역 변수입니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(327,64): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(327,44): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(327,24): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(328,67): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(328,46): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(328,25): warning C4244: '인수': 'double'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(351,32): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(363,35): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(366,51): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(366,41): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\3D 좌표계\main.cpp(366,31): warning C4244: '인수': 'GLdouble'에서 'GLfloat'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   3D 좌표계.vcxproj -> C:\Users\겨울엔군고구마한잔\OneDrive - 한양대학교\바탕 화면\C++\3D 좌표계\Debug\3D 좌표계.exe

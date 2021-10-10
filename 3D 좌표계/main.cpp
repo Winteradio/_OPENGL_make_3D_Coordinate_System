@@ -47,12 +47,19 @@ int P_WIDTH, P_HEIGHT;
 double ratio[2];
 int WIN[2];
 
+double Picking[3];
+double pos[3];
+
+
 bool pick = FALSE;
+bool L_Drag = FALSE;
 bool YPOS[8];
 int numb;
 
 // OpenGL Timer 함수 간격
 int Time = 10;
+
+GLdouble RRPos[3];
 
 void picking() {
     double POS[3];
@@ -113,42 +120,57 @@ void C_Timer(int value) {
     glutTimerFunc(Time, C_Timer, 0);
     if (drag == 1) {
         double P_WIN[2];
-        double pos[3] = { -4,3,-3 };
+        for (int t = 0; t <= 2; t++) {
+            pos[t] = Pa.particle[6][0][t];
+        }
         E.Cubetoplane_1(CX, CY, pos, ratio);
         E.Cubetoplane_2(ratio, P_WIDTH, WIDTH, P_HEIGHT, HEIGHT, P_WIN);
-        cout << "윈도우창 좌표" << endl;
-        cout << WIN[0] << "," << WIN[1] << endl;
-        cout << "입체상 좌표" << endl;
-        cout << P_WIN[0] << "," << P_WIN[1] << endl;
+    }
+
+    if (pick == TRUE) {
+        if (drag == 1) {
+            double P[3];
+            for (int i = 0; i <= 2; i++) {
+                P[i] = Pa.particle[6][0][i] - CY[i];
+            }
+            double WINZ = sqrt(CX[0] * CX[0] + CX[1] * CX[1] + CX[2] * CX[2]) - E.Dotproduct(P, CX) / sqrt(CX[0] * CX[0] + CX[1] * CX[1] + CX[2] * CX[2]);
+            GLdouble model[16], proj[16];
+            GLint view[4];
+
+            glGetDoublev(GL_MODELVIEW_MATRIX, model);
+            glGetDoublev(GL_PROJECTION_MATRIX, proj);
+            glGetIntegerv(GL_VIEWPORT, view);
+            gluUnProject(WIN[0], P_HEIGHT - WIN[1], 0, model, proj, view, &RRPos[0], &RRPos[1], &RRPos[2]);
+            double lenght = sqrt(E.Dotproduct(CX, CX)) - E.Dotproduct(CX, P) / sqrt(E.Dotproduct(CX, CX));
+            for (int i = 0; i <= 2; i++) {
+                RRPos[i] = (RRPos[i] - CY[i] - CX[i] * (camera[0] - 1) / camera[0]) * lenght + CY[i] + (E.Dotproduct(CX, P) / sqrt(E.Dotproduct(CX, CX))) * CX[i] / sqrt(E.Dotproduct(CX, CX));
+            }
+        }
     }
 }
+
 
 void Timer(int value) {
     P.S_Force(Pa.particle);
     for (int i = 0; i < Pa.num; i++) {
         P.G_Force(i, Pa.particle);
         P.D_Force(i, Pa.particle);
-        P.Contact(i, Pa.particle);
-        P.E_Velocity(i, Pa.particle);
-        P.Collision(i, Pa.particle);
-
-        if (pick == TRUE&& drag==1) {
-            if (YPOS[i] == TRUE) {
-                for (int i = 0; i <= 2; i++) {
-                    Pa.particle[numb][0][i] += mouseMove[i] * 0.05;
-                }
-            }
-            else{
-                for (int j = 0; j <= 2; j++) {
-                    Pa.particle[i][0][j] += Pa.particle[i][1][j] * (float)P.Time / 1000;
+        if (pick == TRUE) {
+            if (drag == 1) {
+                if (i == 6) {
+                    double Dis = sqrt(pow(RRPos[0] - pos[0], 2) + pow(RRPos[1] - pos[1], 2) + pow(RRPos[2] - pos[2], 2));
+                    if (Dis < 20) {
+                        P.Piking_S_Force(RRPos, Pa.particle, i);
+                    }
                 }
             }
         }
-        else {
+            P.Contact(i, Pa.particle);
+            P.E_Velocity(i, Pa.particle);
+            P.Collision(i, Pa.particle);
             for (int j = 0; j <= 2; j++) {
                 Pa.particle[i][0][j] += Pa.particle[i][1][j] * (float)P.Time / 1000;
             }
-        }
     }
     O.reset(Pa.particle);
     glutPostRedisplay();
@@ -183,8 +205,13 @@ void changesize(int w, int h)
 }
 
 void keyboard(unsigned char key, int x, int y) {
+    double T = sqrt(E.Dotproduct(RRPos, RRPos));
+    double D = sqrt(pow(RRPos[0] - pos[0], 2) + pow(RRPos[1] - pos[1], 2) + pow(RRPos[2] - pos[2], 2));
     switch (key) {
     case 32:
+        cout << RRPos[0] << " , " << RRPos[1] << " , " << RRPos[2] << endl;
+        cout << "총길이 : " << T << endl;
+        cout << "차이 : " << D << endl;
         if (pick == FALSE) {
             pick = TRUE;
         }
@@ -319,6 +346,8 @@ void coordinatesystem(void) //
         glEnd();
     }
 
+      
+
     glColor4f(0.5, 0.5, 0.0,0.2);
     glLineWidth(1);
     glBegin(GL_LINES);
@@ -329,6 +358,17 @@ void coordinatesystem(void) //
         }
     }}
     glEnd();
+    if (pick == TRUE) {
+        if (drag == 1) {
+            glColor4f(1, 1, 1, 0.2);
+            glLineWidth(1);
+            glBegin(GL_LINES);
+            glVertex3f(RRPos[0], RRPos[1], RRPos[2]);
+            glVertex3f(Pa.particle[6][0][0], Pa.particle[6][0][1], Pa.particle[6][0][2]);
+
+            glEnd();
+        }
+    }
 
     glFlush();
     glutSwapBuffers();

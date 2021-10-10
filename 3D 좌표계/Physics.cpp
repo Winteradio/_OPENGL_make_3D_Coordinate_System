@@ -1,6 +1,9 @@
 #include "GL/freeglut.h"
 #include "physics.h"
 #include <math.h>
+#include <iostream>
+
+using namespace std;
 
 Particle N = Particle();
 
@@ -24,8 +27,6 @@ void Physics::D_Force(int i, float particle[8][3][3]) { // 항력 계산
 }
 
 void Physics::S_Force(float particle[8][3][3]) {// 탄성력 계산
-	float X_Delta[3];
-	float V_Delta[3];
 	for (int i = 0; i < N.num - 1; i++) {
 		for (int j = i + 1; j < N.num; j++) {
 			for (int t = 0; t <= 2; t++) {
@@ -36,6 +37,18 @@ void Physics::S_Force(float particle[8][3][3]) {// 탄성력 계산
 				particle[i][2][t] += -(Ks * (Distance(X_Delta) - L) + Kd * Dot(V_Delta, X_Delta) / Distance(X_Delta)) * X_Delta[t] / Distance(X_Delta);
 				particle[j][2][t] += -particle[i][2][t];
 			}
+		}
+	}
+}
+
+void Physics::Piking_S_Force(double picking[3], float particle[8][3][3], int i) {
+	for (int t = 0; t <= 2; t++) {
+		X_Delta[t] = particle[i][0][t] - picking[t];
+		V_Delta[t] = particle[i][1][t];
+	}
+	for (int t = 0; t <= 2; t++) {
+		if (Distance(X_Delta) > 1) {
+			particle[i][2][t] += -(Ks * (Distance(X_Delta)) + Kd * Dot(V_Delta, X_Delta) / Distance(X_Delta)) * X_Delta[t] / Distance(X_Delta);
 		}
 	}
 }
